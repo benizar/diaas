@@ -11,12 +11,12 @@
 <img>
 <div class="mermaid" id="mermaidChart0">
 	<script type="text/javascript">
-		//var url = "http://www.example.com/t.html?mmmd=graph LR;A --- B;B-->C[fa:fa-ban forbidden];B-->D(fa:fa-spinner);";
+		//var url = "http://www.example.com/t.html?mmd=graph LR;A --- B;B-->C[fa:fa-ban forbidden];B-->D(fa:fa-spinner);";
 		var url = window.location.href;
 		var url = new URL(url);
-		var mmmd = url.searchParams.get("mmmd");
-		console.log(mmmd);
-		document.getElementById("mermaidChart0").innerHTML = mmmd;
+		var mmd = url.searchParams.get("mmd");
+		console.log(mmd);
+		document.getElementById("mermaidChart0").innerHTML = mmd;
 	</script>
 </div>
 </img>
