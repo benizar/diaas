@@ -1,6 +1,6 @@
 # my-mermaid
 
-[Example](https://benito-zaragozi.com/diagrams/?mmd=sequenceDiagram;A->> B: Query;B->> C: Forward query;Note right of C: Thinking...;C->> B: Response;B->> A: Forward response;)
+[Example](https://benito-zaragozi.com/diagrams/?mmd=sequenceDiagram;A-%3E%3E%20B:%20Query;B-%3E%3E%20C:%20Forward%20query;Note%20right%20of%20C:%20Thinking...;C-%3E%3E%20B:%20Response;B-%3E%3E%20A:%20Forward%20response;)
 
 ![My diagram](https://benito-zaragozi.com/diagrams/?mmd=graph%20LR;A%20-->%20B;)
 
