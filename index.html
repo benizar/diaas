@@ -1,27 +1,57 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
+
 <head>
-	<meta charset="utf-8">
-	<script src="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js"></script>
-	<link href="https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.css" rel="stylesheet"/>
-	<title>mmmd</title>
+<title>Simple Diagrams Editor</title>
+<meta charset="UTF-8">
+<meta name="author" content="Benito Zaragozí" />
+<meta name="keywords" content="UML,Unified Modeling Language,Diagrams" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.css"/>
+<link rel="stylesheet" href="css/style.css"/>
 </head>
+
+
 <body>
 
-<img>
-<div class="mermaid" id="mermaidChart0">
-	<script type="text/javascript">
-		//var url = "http://www.example.com/t.html?mmd=graph LR;A --- B;B-->C[fa:fa-ban forbidden];B-->D(fa:fa-spinner);";
-		var url = window.location.href;
-		var url = new URL(url);
-		var mmd = url.searchParams.get("mmd");
-		console.log(mmd);
-		document.getElementById("mermaidChart0").innerHTML = mmd;
-	</script>
+<div class="w3-row-padding">
+<div class="w3-third">
+<h1>Input</h1>
+<textarea name="" id="input">
+sequenceDiagram
+A->> B: Query
+B->> C: Forward query
+Note right of C: Thinking...
+C->> B: Response
+B->> A: Forward response
+</textarea>
 </div>
-</img>
 
-<script>mermaid.initialize({startOnLoad:true});</script>
+<div class="w3-twothird">
+<h1>Output</h1>
+<div id="output"></div>
+</div>
+
+</div>
+
+<div class="w3-row-padding">
+<button id="dwn-btn-url">URL <i class="fa fa-file-o"></i></button>
+<button id="dwn-btn-dia">DIA <i class="fa fa-file-o"></i></button>
+<button id="dwn-btn-svg">SVG <i class="fa fa-file-code-o"></i></button>
+<button id="dwn-btn-png">PNG <i class="fa fa-file-image-o"></i></button>
+<button id="dwn-btn-pdf">PDF <i class="fa fa-file-pdf-o"></i></button>
+<button id="dwn-btn-zip">ZIP <i class="fa fa-file-zip-o"></i></button>
+</div>
 
 </body>
-</html> 
+
+<script  src="js/index.js"></script>
+
+</html>
