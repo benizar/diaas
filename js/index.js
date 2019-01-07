@@ -47,12 +47,12 @@ function renderMMD() {
 		output.innerHTML = svgCode;
 		console.log(svgCode);
 
-	//Need to edit the SVG for zooming it
-	var svg = document.getElementById( 'theGraph' );
-	svg.setAttributeNS(null,"style","width:100%;");
-	console.log(svg);
+		//Need to edit the SVG for zooming it
+		var svg = document.getElementById('theGraph');
+		svg.setAttributeNS(null,"style","width:100%;");
+		console.log(svg);
 
-	zoomSVG();
+		zoomSVG();
 	});
 }
 
