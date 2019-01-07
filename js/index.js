@@ -1,9 +1,14 @@
 
 mermaidAPI.initialize({startOnLoad: true,
-            flowchart:{
-                    useMaxWidth:true,
-                    htmlLabels:true
-            }});
+	flowchart:{
+		useMaxWidth:true,
+		htmlLabels:true
+	},
+	sequenceDiagram:{
+		useMaxWidth:true
+	}
+});
+
 var editor = ace.edit("input");
 editor.setTheme("ace/theme/cobalt");
 editor.setOptions({
