@@ -3,7 +3,7 @@ mermaidAPI.initialize({startOnLoad: false});
 
 
 var editor = ace.edit("input");
-document.getElementById('input').style.fontSize='16px';
+
 editor.setTheme("ace/theme/cobalt");
 
 //Get mmd
