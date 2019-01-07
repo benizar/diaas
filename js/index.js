@@ -13,7 +13,7 @@ var editor = ace.edit("input");
 editor.setTheme("ace/theme/cobalt");
 editor.setOptions({
   //fontFamily: "tahoma",
-  fontSize: "12pt"
+  fontSize: "14pt"
 });
 
 //Get mmd
@@ -36,23 +36,29 @@ editor.on("change", function(e) {
 //Functions
 function renderMMD() {
 
+	var needsUniqueId = "render" + (Math.floor(Math.random() * 10000)).toString();
+
 	console.log("Rendering mmd");
 	var dia = editor.getValue();
 
 	console.log(dia);
-	var output = document.getElementById("output");
-	output.innerHTML = "";
 
-	mermaidAPI.render('theGraph', dia, function(svgCode) {
+	//Faster than output.innerHTML = "";
+	var output = document.getElementById("output");
+	while (output.firstChild) {
+		output.removeChild(output.firstChild);
+	}
+
+	mermaidAPI.render(needsUniqueId, dia, function(svgCode) {
 		output.innerHTML = svgCode;
 		console.log(svgCode);
 
 		//Need to edit the SVG for zooming it
-		var svg = document.getElementById('theGraph');
+		var svg = document.getElementById(needsUniqueId);
 		svg.setAttributeNS(null,"style","width:100%;");
 		console.log(svg);
 
-		zoomSVG();
+		zoomSVG(needsUniqueId);
 	});
 }
 
@@ -133,8 +139,8 @@ function blobToDataURL(blob, callback) {
     a.readAsDataURL(blob);
 }
 
-function zoomSVG() {
-        var panZoom = window.panZoom = svgPanZoom('#theGraph', {
+function zoomSVG(id) {
+        var panZoom = window.panZoom = svgPanZoom('#'+id, {
           zoomEnabled: true,
           controlIconsEnabled: true,
           fit: 1,
