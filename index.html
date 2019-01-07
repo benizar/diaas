@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-<title>Simple Diagrams Editor</title>
+<title>DIAAS</title>
 <meta charset="UTF-8">
 <meta name="author" content="Benito Zaragozí" />
 <meta name="keywords" content="UML,Unified Modeling Language,Diagrams" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<script src="https://ajaxorg.github.io/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://ariutta.github.io/svg-pan-zoom/dist/svg-pan-zoom.js"></script>
 <script src="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.min.js"></script>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.css"/>
-<link rel="stylesheet" href="css/style.css"/>
 </head>
 
 
 <body>
+<!-- Header -->
+<header class="w3-container w3-xlarge w3-padding-large w3-black">
+DIagrams As A Service (DIAAS)
+</header>
 
-<div class="w3-row-padding">
+<div class="w3-container w3-large w3-padding-small w3-sand">
+<button id="dwn-btn-zip" class="w3-button w3-large">ZIP <i class="fa fa-file-zip-o"></i></button>
+<button id="dwn-btn-pdf" class="w3-button w3-large">PDF <i class="fa fa-file-pdf-o"></i></button>
+<button id="dwn-btn-png" class="w3-button w3-large">PNG <i class="fa fa-file-image-o"></i></button>
+<button id="dwn-btn-svg" class="w3-button w3-large">SVG <i class="fa fa-file-code-o"></i></button>
+<button id="dwn-btn-dia" class="w3-button w3-large">DIA <i class="fa fa-file-o"></i></button>
+<button id="dwn-btn-url" class="w3-button w3-large">URL <i class="fa fa-file-o"></i></button>
+</div>
+
+
+<!-- App -->
+<main class="w3-container">
+
+
+<div class="w3-row">
 <div class="w3-third">
-<h1>Input</h1>
-<textarea name="" id="input">
-sequenceDiagram
-A->> B: Query
-B->> C: Forward query
-Note right of C: Thinking...
-C->> B: Response
-B->> A: Forward response
-</textarea>
+<h3>Input</h3>
+<div id="input" style="height: 75vmin; width: 90%"></div>
 </div>
 
 <div class="w3-twothird">
-<h1>Output</h1>
-<div id="output"></div>
+<h3>Output</h3>
+<div id="output"style="height: 75vmin; width: 100%; border:1px solid black; "></div>
 </div>
+</div>
+</main>
 
-</div>
-
-<div class="w3-row-padding">
-<button id="dwn-btn-url">URL <i class="fa fa-file-o"></i></button>
-<button id="dwn-btn-dia">DIA <i class="fa fa-file-o"></i></button>
-<button id="dwn-btn-svg">SVG <i class="fa fa-file-code-o"></i></button>
-<button id="dwn-btn-png">PNG <i class="fa fa-file-image-o"></i></button>
-<button id="dwn-btn-pdf">PDF <i class="fa fa-file-pdf-o"></i></button>
-<button id="dwn-btn-zip">ZIP <i class="fa fa-file-zip-o"></i></button>
-</div>
+<!-- Footer -->
+<footer class="w3-container w3-bottom w3-padding-small w3-black" id="about">
+Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a>
+</footer>
 
 </body>
 
 <script  src="js/index.js"></script>
-
 </html>

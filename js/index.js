@@ -1,28 +1,34 @@
 
 mermaidAPI.initialize({startOnLoad: false});
 
+
+var editor = ace.edit("input");
+document.getElementById('input').style.fontSize='16px';
+editor.setTheme("ace/theme/cobalt");
+
 //Get mmd
 //http://www.example.com/t.html?mmd=graph LR;A --- B;B-->C[fa:fa-ban forbidden];B-->D(fa:fa-spinner);
 var site = window.location.href.split('?')[0];
 var url = new URL(window.location.href);
 var mmd = url.searchParams.get("mmd");
-document.getElementById("input").innerHTML = mmd.replace(/;/g, "\n");
+editor.setValue(mmd.replace(/;/g, "\n"));
 console.log(mmd);
 
 //Render first time
 renderMMD();
 
 //Render after editing
-document.getElementById("input").addEventListener("keyup", function(){
-	renderMMD();
-}, false);
+editor.on("change", function(e) {
+  renderMMD();
+})
 
 
 //Functions
 function renderMMD() {
 
 	console.log("Rendering mmd");
-	var dia = document.getElementById("input").value;
+	var dia = editor.getValue();
+console.log(dia);
 	var output = document.getElementById("output");
 
 	output.innerHTML = "";
@@ -31,6 +37,11 @@ function renderMMD() {
 		console.log(svgCode);
 	});
 
+	var svg = document.getElementById( 'theGraph' );
+	svg.setAttributeNS(null,"style","");
+	console.log(svg);
+	zoomSVG();
+	
 }
 
 function svgToDataUri(svgElement){
@@ -74,7 +85,7 @@ function download(filename, text) {
 //Download as MMD file
 document.getElementById("dwn-btn-dia").addEventListener("click", function(){
     // Generate download of hello.txt file with some content
-	var dia = document.getElementById("input").value;
+	var dia = editor.getValue();
 	var text = 'data:text/plain;charset=utf-8,' + encodeURIComponent(dia)
 	var filename = "mermaid.mmd";
     
@@ -109,3 +120,15 @@ function blobToDataURL(blob, callback) {
     a.onload = function(e) {callback(e.target.result);}
     a.readAsDataURL(blob);
 }
+
+function zoomSVG() {
+        var panZoom = window.panZoom = svgPanZoom('#theGraph', {
+          zoomEnabled: true,
+          controlIconsEnabled: true,
+          fit: 1,
+          center: 1
+        });
+      };
+
+
+
