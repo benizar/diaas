@@ -4,7 +4,7 @@ var editor = ace.edit("input");
 editor.setTheme("ace/theme/cobalt");
 editor.setOptions({
   //fontFamily: "tahoma",
-  fontSize: "16pt"
+  fontSize: "14pt"
 });
 
 //Get mmd
@@ -39,7 +39,7 @@ function renderMMD() {
 		console.log(svgCode);
 
 	var svg = document.getElementById( 'theGraph' );
-	svg.setAttributeNS(null,"style","");
+	svg.setAttributeNS(null,"style","width:100%;");
 	console.log(svg);
 	zoomSVG();
 	});
