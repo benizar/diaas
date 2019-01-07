@@ -1,10 +1,14 @@
 
-mermaidAPI.initialize({startOnLoad: false});
+mermaidAPI.initialize({startOnLoad: true,
+            flowchart:{
+                    useMaxWidth:true,
+                    htmlLabels:true
+            }});
 var editor = ace.edit("input");
 editor.setTheme("ace/theme/cobalt");
 editor.setOptions({
   //fontFamily: "tahoma",
-  fontSize: "14pt"
+  fontSize: "12pt"
 });
 
 //Get mmd
@@ -38,9 +42,11 @@ function renderMMD() {
 		output.innerHTML = svgCode;
 		console.log(svgCode);
 
+	//Need to edit the SVG for zooming it
 	var svg = document.getElementById( 'theGraph' );
 	svg.setAttributeNS(null,"style","width:100%;");
 	console.log(svg);
+
 	zoomSVG();
 	});
 
