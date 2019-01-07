@@ -36,8 +36,8 @@ function renderMMD() {
 
 	console.log(dia);
 	var output = document.getElementById("output");
-
 	output.innerHTML = "";
+
 	mermaidAPI.render('theGraph', dia, function(svgCode) {
 		output.innerHTML = svgCode;
 		console.log(svgCode);
@@ -49,9 +49,6 @@ function renderMMD() {
 
 	zoomSVG();
 	});
-
-
-	
 }
 
 function svgToDataUri(svgElement){
