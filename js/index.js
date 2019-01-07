@@ -1,10 +1,11 @@
 
 mermaidAPI.initialize({startOnLoad: false});
-
-
 var editor = ace.edit("input");
-
 editor.setTheme("ace/theme/cobalt");
+editor.setOptions({
+  //fontFamily: "tahoma",
+  fontSize: "16pt"
+});
 
 //Get mmd
 //http://www.example.com/t.html?mmd=graph LR;A --- B;B-->C[fa:fa-ban forbidden];B-->D(fa:fa-spinner);
@@ -28,19 +29,22 @@ function renderMMD() {
 
 	console.log("Rendering mmd");
 	var dia = editor.getValue();
-console.log(dia);
+
+	console.log(dia);
 	var output = document.getElementById("output");
 
 	output.innerHTML = "";
 	mermaidAPI.render('theGraph', dia, function(svgCode) {
 		output.innerHTML = svgCode;
 		console.log(svgCode);
-	});
 
 	var svg = document.getElementById( 'theGraph' );
 	svg.setAttributeNS(null,"style","");
 	console.log(svg);
 	zoomSVG();
+	});
+
+
 	
 }
 
