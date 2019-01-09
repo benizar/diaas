@@ -36,7 +36,13 @@ editor.on("change", function(e) {
 //Functions
 function renderMMD() {
 
-	var needsUniqueId = "render" + (Math.floor(Math.random() * 10000)).toString();
+	//Remove extra divs :-/
+	var dtheGraph = document.getElementById("dtheGraph");
+
+	if (dtheGraph !== null) {
+		document.getElementById("dtheGraph").outerHTML = "";
+	}
+		
 
 	console.log("Rendering mmd");
 	var dia = editor.getValue();
@@ -49,16 +55,16 @@ function renderMMD() {
 		output.removeChild(output.firstChild);
 	}
 
-	mermaidAPI.render(needsUniqueId, dia, function(svgCode) {
+	mermaidAPI.render("theGraph", dia, function(svgCode) {
 		output.innerHTML = svgCode;
 		console.log(svgCode);
 
 		//Need to edit the SVG for zooming it
-		var svg = document.getElementById(needsUniqueId);
+		var svg = document.getElementById("theGraph");
 		svg.setAttributeNS(null,"style","width:100%;");
 		console.log(svg);
 
-		zoomSVG(needsUniqueId);
+		zoomSVG("theGraph");
 	});
 }
 
@@ -147,6 +153,5 @@ function zoomSVG(id) {
           center: 1
         });
       };
-
 
 
